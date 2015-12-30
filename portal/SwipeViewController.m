@@ -8,7 +8,7 @@
 
 #import "SwipeViewController.h"
 #import "DraggableViewBackground.h"
-#import "ConnectionsViewController.h"
+#import "NotificationsViewController.h"
 #import "UserMenuViewController.h"
 
 @interface SwipeViewController ()
@@ -158,7 +158,7 @@
     UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [titleView setUserInteractionEnabled:NO];
     
-    NSString *titleText = @"Portal";
+    NSString *titleText = @"Netlurk";
     [titleView setTitleColor:[self navColor] forState:UIControlStateNormal];
     
     [titleView setTitle:titleText forState:UIControlStateNormal];
@@ -211,7 +211,7 @@
 - (void)rightButtonPressed:(id)sender {
     
     
-    ConnectionsViewController *account = [[ConnectionsViewController alloc] init];
+    NotificationsViewController *account = [[NotificationsViewController alloc] init];
     [self.navigationItem setHidesBackButton:NO];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:account animated:YES];

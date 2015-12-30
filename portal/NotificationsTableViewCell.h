@@ -1,5 +1,5 @@
 //
-//  ConnectionsTableViewCell.h
+//  NotificationsTableViewCell.h
 //  portal
 //
 //  Created by Neil Ballard on 11/22/15.
@@ -10,7 +10,7 @@
 #import <linkedin-sdk/LISDK.h>
 
 
-@interface ConnectionsTableViewCell : UITableViewCell
+@interface NotificationsTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *pic;
 @property (strong, nonatomic) IBOutlet UIView *pickbackground;

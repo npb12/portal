@@ -1,17 +1,17 @@
 //
-//  ConnectionsTableViewCell.m
+//  NotificationsTableViewCell.m
 //  portal
 //
 //  Created by Neil Ballard on 11/22/15.
 //  Copyright © 2015 Neil_appworld. All rights reserved.
 //
 
-#import "ConnectionsTableViewCell.h"
+#import "NotificationsTableViewCell.h"
 #import "DeviceManager.h"
 #import "DataAccess.h"
 
 
-@implementation ConnectionsTableViewCell
+@implementation NotificationsTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

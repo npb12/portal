@@ -102,7 +102,7 @@
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
         pad = 6;
-        height = 415;
+        height = 425;
         width = 292;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
@@ -177,7 +177,7 @@
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
         pad = 1;
-        height = 413;
+        height = 423;
         width = 290;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])

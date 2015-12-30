@@ -28,8 +28,8 @@
 		4A92A3941C0586C600E12000 /* 1448452694_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A92A3931C0586C600E12000 /* 1448452694_settings.png */; };
 		4A92A3981C07D0BB00E12000 /* peace-sign-hand.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A92A3971C07D0BB00E12000 /* peace-sign-hand.png */; };
 		4A998B531C01BD3C000F7BFD /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A998B521C01BD3C000F7BFD /* HomeTableViewCell.m */; };
-		4A998B561C01BF59000F7BFD /* ConnectionsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A998B551C01BF59000F7BFD /* ConnectionsTableViewCell.m */; };
-		4A998B591C01BF97000F7BFD /* ConnectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A998B581C01BF97000F7BFD /* ConnectionsViewController.m */; };
+		4A998B561C01BF59000F7BFD /* NotificationsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A998B551C01BF59000F7BFD /* NotificationsTableViewCell.m */; };
+		4A998B591C01BF97000F7BFD /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A998B581C01BF97000F7BFD /* NotificationsViewController.m */; };
 		4A99BF2E1BE6EF4700356805 /* AccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A99BF2D1BE6EF4700356805 /* AccountTableViewCell.m */; };
 		4A99BF311BE728EC00356805 /* MyProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A99BF301BE728EC00356805 /* MyProfileViewController.m */; };
 		4A99BF331BE72BF000356805 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A99BF321BE72BF000356805 /* Edit.png */; };
@@ -127,10 +127,10 @@
 		4A92A3971C07D0BB00E12000 /* peace-sign-hand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "peace-sign-hand.png"; sourceTree = "<group>"; };
 		4A998B511C01BD3C000F7BFD /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		4A998B521C01BD3C000F7BFD /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
-		4A998B541C01BF59000F7BFD /* ConnectionsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsTableViewCell.h; sourceTree = "<group>"; };
-		4A998B551C01BF59000F7BFD /* ConnectionsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsTableViewCell.m; sourceTree = "<group>"; };
-		4A998B571C01BF97000F7BFD /* ConnectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionsViewController.h; sourceTree = "<group>"; };
-		4A998B581C01BF97000F7BFD /* ConnectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionsViewController.m; sourceTree = "<group>"; };
+		4A998B541C01BF59000F7BFD /* NotificationsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsTableViewCell.h; sourceTree = "<group>"; };
+		4A998B551C01BF59000F7BFD /* NotificationsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsTableViewCell.m; sourceTree = "<group>"; };
+		4A998B571C01BF97000F7BFD /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		4A998B581C01BF97000F7BFD /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
 		4A99BF2C1BE6EF4700356805 /* AccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewCell.h; sourceTree = "<group>"; };
 		4A99BF2D1BE6EF4700356805 /* AccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewCell.m; sourceTree = "<group>"; };
 		4A99BF2F1BE728EC00356805 /* MyProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileViewController.h; sourceTree = "<group>"; };
@@ -353,6 +353,7 @@
 		4ABB5BE11BC8C08A00BEA3EF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4AD4043C1C33A563004AC3E8 /* Connections */,
 				4ADCA1261C1E9749002A018B /* Home */,
 				4ABB5BEB1BC9824300BEA3EF /* User Account */,
 				4ABB5BDE1BC8C07C00BEA3EF /* LoginViewController.h */,
@@ -406,14 +407,21 @@
 				4A12E7A61BFC32EB000ECD59 /* ProfileViewController.m */,
 				4A998B511C01BD3C000F7BFD /* HomeTableViewCell.h */,
 				4A998B521C01BD3C000F7BFD /* HomeTableViewCell.m */,
-				4A998B541C01BF59000F7BFD /* ConnectionsTableViewCell.h */,
-				4A998B551C01BF59000F7BFD /* ConnectionsTableViewCell.m */,
-				4A998B571C01BF97000F7BFD /* ConnectionsViewController.h */,
-				4A998B581C01BF97000F7BFD /* ConnectionsViewController.m */,
+				4A998B541C01BF59000F7BFD /* NotificationsTableViewCell.h */,
+				4A998B551C01BF59000F7BFD /* NotificationsTableViewCell.m */,
+				4A998B571C01BF97000F7BFD /* NotificationsViewController.h */,
+				4A998B581C01BF97000F7BFD /* NotificationsViewController.m */,
 				4AFC396D1C099D38004E7262 /* SettingsViewController.h */,
 				4AFC396E1C099D38004E7262 /* SettingsViewController.m */,
 			);
 			name = "User Account";
+			sourceTree = "<group>";
+		};
+		4AD4043C1C33A563004AC3E8 /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Connections;
 			sourceTree = "<group>";
 		};
 		4ADCA1261C1E9749002A018B /* Home */ = {
@@ -593,14 +601,14 @@
 				4A99BF361BE72DE700356805 /* MyProfileTableViewCell.m in Sources */,
 				4A705C8E1BEDC3A30084B23C /* FacebookFieldViewController.m in Sources */,
 				4ABB5BE41BC8C11900BEA3EF /* ViewController.m in Sources */,
-				4A998B561C01BF59000F7BFD /* ConnectionsTableViewCell.m in Sources */,
+				4A998B561C01BF59000F7BFD /* NotificationsTableViewCell.m in Sources */,
 				4ABB5BA81BC8BCB700BEA3EF /* portal.xcdatamodeld in Sources */,
 				4ABB5BDD1BC8BEC400BEA3EF /* DeviceManager.m in Sources */,
 				4ABB5BE71BC8C31400BEA3EF /* DataAccess.m in Sources */,
 				4A99BF2E1BE6EF4700356805 /* AccountTableViewCell.m in Sources */,
 				4ADCA12E1C1E9804002A018B /* DraggableViewBackground.m in Sources */,
 				4ABB5BF71BC9D78100BEA3EF /* AccountViewController.m in Sources */,
-				4A998B591C01BF97000F7BFD /* ConnectionsViewController.m in Sources */,
+				4A998B591C01BF97000F7BFD /* NotificationsViewController.m in Sources */,
 				4ADFECBD1BE326D5006515E5 /* SnapchatFieldViewController.m in Sources */,
 				4ADCA1321C1E9920002A018B /* SwipeViewController.m in Sources */,
 				4A12E7A41BFB0F90000ECD59 /* UserAccountTableViewCell.m in Sources */,

@@ -14,7 +14,7 @@
 #import "DeviceManager.h"
 #import "DataAccess.h"
 #import "HomeTableViewCell.h"
-#import "ConnectionsViewController.h"
+#import "NotificationsViewController.h"
 
 
 
@@ -558,7 +558,7 @@
 - (void)rightButtonPressed:(id)sender {
     
     
-    ConnectionsViewController *account = [[ConnectionsViewController alloc] init];
+    NotificationsViewController *account = [[NotificationsViewController alloc] init];
     [self.navigationItem setHidesBackButton:NO];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:account animated:YES];

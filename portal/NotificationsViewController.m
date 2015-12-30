@@ -1,12 +1,12 @@
 //
-//  ConnectionsViewController.m
+//  NotificationsViewController.m
 //  portal
 //
 //  Created by Neil Ballard on 11/22/15.
 //  Copyright © 2015 Neil_appworld. All rights reserved.
 //
 
-#import "ConnectionsViewController.h"
+#import "NotificationsViewController.h"
 #import "DeviceManager.h"
 #import "AlbumsTableViewController.h"
 #import "DataAccess.h"
@@ -19,7 +19,7 @@
 #import "FBAccountViewController.h"
 #import "LinkedinAccountViewController.h"
 
-@interface ConnectionsViewController ()
+@interface NotificationsViewController ()
 
 @property (nonatomic, retain) UIView * background;
 @property (strong, nonatomic) IBOutlet UIImageView *pic;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation ConnectionsViewController
+@implementation NotificationsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -203,9 +203,9 @@
     UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [titleView setUserInteractionEnabled:NO];
    
-    UIImage *connections_image = [[UIImage imageNamed:@"connections"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *Notifications_image = [[UIImage imageNamed:@"Notifications"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    [titleView setBackgroundImage:connections_image forState:UIControlStateNormal];
+    [titleView setBackgroundImage:Notifications_image forState:UIControlStateNormal];
 //    NSString *titleText = @"Name";
 //    [titleView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
@@ -277,7 +277,7 @@
     }
     
     self.searchTextField.backgroundColor = [self grayColor];
-    self.searchTextField.placeholder = @"Search Connections";
+    self.searchTextField.placeholder = @"Search Notifications";
     self.searchTextField.textAlignment = NSTextAlignmentCenter;
     self.searchTextField.textColor = [UIColor blackColor];
     self.searchTextField.layer.shadowRadius = 0.01;
@@ -377,7 +377,7 @@
     self.networksLabel.font = [UIFont fontWithName:@"Verdana" size:17.0f];
     self.networksLabel.textColor = [self cdBlue];
     
-    self.networksLabel.text = @"Connections";
+    self.networksLabel.text = @"Notifications";
     
     [self.view addSubview:self.networksLabel];
     
@@ -428,11 +428,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyReuseIdentifier";
     // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    ConnectionsTableViewCell *cell = (ConnectionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    NotificationsTableViewCell *cell = (NotificationsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
     
     if (cell == nil) {
-        cell = [[ConnectionsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        cell = [[NotificationsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
     
     UIFont *myFont = [ UIFont fontWithName: @"Arial" size: 19.0 ];
@@ -555,7 +555,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 
-    ConnectionsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NotificationsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
     
     
