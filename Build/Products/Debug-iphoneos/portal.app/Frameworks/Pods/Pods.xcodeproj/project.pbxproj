@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28498DA2E1B78FDED099A5ED1BC7F018 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */; };
+		321997F89E7CC556ED95C06E2396340C /* DMPagerViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D521742921EFEE4F3192EE5D3A64FFC /* DMPagerViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37079A1E1582C47A9C22B3F77F3A5E48 /* DMPagerNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C277070485D9DDC38E65D3FFF5C0A39B /* DMPagerNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50E840687D536556446995CF5C97DC87 /* DMPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9117771423855B32AB599E857B951DE /* DMPagerViewController.m */; };
+		51F7BC7B28C5479D11C1460F9BFD6442 /* DMPagerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E9B5CFF580C57C0C9B6E64C2125AE7 /* DMPagerNavigationBar.m */; };
+		544232AF16ED5E36827737161ECA1E3B /* DMPagerViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB6D39FEB7FEF417E65B0710CD6D3F3 /* DMPagerViewController-dummy.m */; };
+		7A3C79203079C55F46073C5BFC0FDB82 /* Pods-portal-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 216D1C2CB95315238EF9A84B8FF3C619 /* Pods-portal-dummy.m */; };
+		81BA5524B6064E8FA54333F12E036BEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		8F28E28E3CAF423E8737143FE1C5CAC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */; };
+		9A5C068E8210F49B3C519BBE8713E966 /* DMPagerViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A8BE34D80DFD8F28B6E54405597CFB2B /* DMPagerViewController.bundle */; };
+		A6A9D9EC8BAE54436A4514EE1B972230 /* DMPagerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AE41AFE1AD638892AAD29067D54F2BBF /* DMPagerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B531868DA75C4828D63E9CFA4408D861 /* Pods-portal-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C96A3E63DE16377B85F051C4740F5AD /* Pods-portal-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0C067B71008BC6ED955BB248C4DF96DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BFF7A7F7644655A3FE3BE90BC9FB0E5;
+			remoteInfo = "DMPagerViewController-DMPagerViewController";
+		};
+		73EF7BE159729FABD402546A121108B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F02DC628ACE7DF59D8EDA971E31B661;
+			remoteInfo = DMPagerViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C9C927EBA15DBE13CA111D29B586FED /* DMPagerViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DMPagerViewController-prefix.pch"; sourceTree = "<group>"; };
+		216D1C2CB95315238EF9A84B8FF3C619 /* Pods-portal-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-portal-dummy.m"; sourceTree = "<group>"; };
+		24E9B5CFF580C57C0C9B6E64C2125AE7 /* DMPagerNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DMPagerNavigationBar.m; path = Pod/Classes/DMPagerNavigationBar.m; sourceTree = "<group>"; };
+		2601A85FC5B96A94DEBAB61A98B5F9E6 /* Pods-portal-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-portal-acknowledgements.plist"; sourceTree = "<group>"; };
+		41E016ED74BD3C57B47B55F475A91BF5 /* Pods-portal.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-portal.modulemap"; sourceTree = "<group>"; };
+		44ECA6A66A911C4E1112A6AF01F41183 /* DMPagerViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMPagerViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B0DA6856818F262CD8836C85D857DFD /* DMPagerViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DMPagerViewController.modulemap; sourceTree = "<group>"; };
+		4C96A3E63DE16377B85F051C4740F5AD /* Pods-portal-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-portal-umbrella.h"; sourceTree = "<group>"; };
+		6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DMPagerViewController.xcconfig; sourceTree = "<group>"; };
+		6C916F9B11752C23B4D64FD211ADA586 /* Pods-portal-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-portal-resources.sh"; sourceTree = "<group>"; };
+		6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7DAB49A31BD0B9712A21909CB63E8A20 /* Pods-portal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-portal.debug.xcconfig"; sourceTree = "<group>"; };
+		8CE220C1B427BEAE9BB70F3500B0BFC3 /* Pods-portal-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-portal-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9D521742921EFEE4F3192EE5D3A64FFC /* DMPagerViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DMPagerViewController-umbrella.h"; sourceTree = "<group>"; };
+		A3C68B945E56B3D86CCC101E4308C6D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8BE34D80DFD8F28B6E54405597CFB2B /* DMPagerViewController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DMPagerViewController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9117771423855B32AB599E857B951DE /* DMPagerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DMPagerViewController.m; path = Pod/Classes/DMPagerViewController.m; sourceTree = "<group>"; };
+		AE41AFE1AD638892AAD29067D54F2BBF /* DMPagerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DMPagerViewController.h; path = Pod/Classes/DMPagerViewController.h; sourceTree = "<group>"; };
+		B24E110C2920E25CD6C73FD5CF90572A /* Pods-portal-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-portal-frameworks.sh"; sourceTree = "<group>"; };
+		B7A1B708A8C1967EF56F135CAD2FC3C4 /* Pods_portal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_portal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C277070485D9DDC38E65D3FFF5C0A39B /* DMPagerNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DMPagerNavigationBar.h; path = Pod/Classes/DMPagerNavigationBar.h; sourceTree = "<group>"; };
+		C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		DDB6D39FEB7FEF417E65B0710CD6D3F3 /* DMPagerViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DMPagerViewController-dummy.m"; sourceTree = "<group>"; };
+		E107B2FA9B3751C73D92625E0A871158 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5C251456E870694A249C73C2D1B06A8 /* Pods-portal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-portal.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B3509241D7809FDAC4870C36F2FE65EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F28E28E3CAF423E8737143FE1C5CAC1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB70A886210FF561B07058650F03FBDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE35369ED7B48AB93F2554B0203FD612 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81BA5524B6064E8FA54333F12E036BEB /* Foundation.framework in Frameworks */,
+				28498DA2E1B78FDED099A5ED1BC7F018 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18340F12838DEE43507667CC74401EB1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E5AF37923BFA48D6994B9BFC6535F /* Foundation.framework */,
+				C3B7BDF5CE5CB8F095FE12DA55D9A9BB /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18340F12838DEE43507667CC74401EB1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				C433A4848668566AC78A5EA9E34F79CF /* Pods */,
+				A6FE48D44BCDF6167B419EB108103975 /* Products */,
+				A3E1F0074B922CF876DDA9768199B74D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8D520ABFDE025CCEA3249B28B4B63CF1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B0DA6856818F262CD8836C85D857DFD /* DMPagerViewController.modulemap */,
+				6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */,
+				DDB6D39FEB7FEF417E65B0710CD6D3F3 /* DMPagerViewController-dummy.m */,
+				0C9C927EBA15DBE13CA111D29B586FED /* DMPagerViewController-prefix.pch */,
+				9D521742921EFEE4F3192EE5D3A64FFC /* DMPagerViewController-umbrella.h */,
+				A3C68B945E56B3D86CCC101E4308C6D4 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DMPagerViewController";
+			sourceTree = "<group>";
+		};
+		A3E1F0074B922CF876DDA9768199B74D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9ED76D1BADDD2BCD1B26090CD75942A /* Pods-portal */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A6FE48D44BCDF6167B419EB108103975 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE34D80DFD8F28B6E54405597CFB2B /* DMPagerViewController.bundle */,
+				44ECA6A66A911C4E1112A6AF01F41183 /* DMPagerViewController.framework */,
+				B7A1B708A8C1967EF56F135CAD2FC3C4 /* Pods_portal.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C433A4848668566AC78A5EA9E34F79CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D23CD1023EFB69D17B0AA87BAF25882B /* DMPagerViewController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D23CD1023EFB69D17B0AA87BAF25882B /* DMPagerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C277070485D9DDC38E65D3FFF5C0A39B /* DMPagerNavigationBar.h */,
+				24E9B5CFF580C57C0C9B6E64C2125AE7 /* DMPagerNavigationBar.m */,
+				AE41AFE1AD638892AAD29067D54F2BBF /* DMPagerViewController.h */,
+				A9117771423855B32AB599E857B951DE /* DMPagerViewController.m */,
+				8D520ABFDE025CCEA3249B28B4B63CF1 /* Support Files */,
+			);
+			path = DMPagerViewController;
+			sourceTree = "<group>";
+		};
+		E9ED76D1BADDD2BCD1B26090CD75942A /* Pods-portal */ = {
+			isa = PBXGroup;
+			children = (
+				E107B2FA9B3751C73D92625E0A871158 /* Info.plist */,
+				41E016ED74BD3C57B47B55F475A91BF5 /* Pods-portal.modulemap */,
+				8CE220C1B427BEAE9BB70F3500B0BFC3 /* Pods-portal-acknowledgements.markdown */,
+				2601A85FC5B96A94DEBAB61A98B5F9E6 /* Pods-portal-acknowledgements.plist */,
+				216D1C2CB95315238EF9A84B8FF3C619 /* Pods-portal-dummy.m */,
+				B24E110C2920E25CD6C73FD5CF90572A /* Pods-portal-frameworks.sh */,
+				6C916F9B11752C23B4D64FD211ADA586 /* Pods-portal-resources.sh */,
+				4C96A3E63DE16377B85F051C4740F5AD /* Pods-portal-umbrella.h */,
+				7DAB49A31BD0B9712A21909CB63E8A20 /* Pods-portal.debug.xcconfig */,
+				F5C251456E870694A249C73C2D1B06A8 /* Pods-portal.release.xcconfig */,
+			);
+			name = "Pods-portal";
+			path = "Target Support Files/Pods-portal";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		40FA6764B98066104A34A7F820A1711D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B531868DA75C4828D63E9CFA4408D861 /* Pods-portal-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF28826A96762068888A531310FEA45C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37079A1E1582C47A9C22B3F77F3A5E48 /* DMPagerNavigationBar.h in Headers */,
+				321997F89E7CC556ED95C06E2396340C /* DMPagerViewController-umbrella.h in Headers */,
+				A6A9D9EC8BAE54436A4514EE1B972230 /* DMPagerViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0BFF7A7F7644655A3FE3BE90BC9FB0E5 /* DMPagerViewController-DMPagerViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1B65C0402C70C06B36E44A38214BCC2 /* Build configuration list for PBXNativeTarget "DMPagerViewController-DMPagerViewController" */;
+			buildPhases = (
+				9F106D3169C9C7E89EC5ED94A3544E96 /* Sources */,
+				DB70A886210FF561B07058650F03FBDF /* Frameworks */,
+				AA0D6796D281A22D2EF8DA648014B7A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DMPagerViewController-DMPagerViewController";
+			productName = "DMPagerViewController-DMPagerViewController";
+			productReference = A8BE34D80DFD8F28B6E54405597CFB2B /* DMPagerViewController.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		9F02DC628ACE7DF59D8EDA971E31B661 /* DMPagerViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4807226DBAEAC41BFAF919CE065B1A22 /* Build configuration list for PBXNativeTarget "DMPagerViewController" */;
+			buildPhases = (
+				96A601EBE08FE65B57C71880453D0526 /* Sources */,
+				EE35369ED7B48AB93F2554B0203FD612 /* Frameworks */,
+				0B5A886A23F5EC72350F1DDC4F714CF5 /* Resources */,
+				AF28826A96762068888A531310FEA45C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8A8D33B25BF4218D79956D780CADF4D1 /* PBXTargetDependency */,
+			);
+			name = DMPagerViewController;
+			productName = DMPagerViewController;
+			productReference = 44ECA6A66A911C4E1112A6AF01F41183 /* DMPagerViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A7BD91D3FE1406C6E9D9B28856C156AB /* Pods-portal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE682FC3AA68D1B83739A9D514ED42D5 /* Build configuration list for PBXNativeTarget "Pods-portal" */;
+			buildPhases = (
+				BBC9F8D2581007C8560997E5375E682F /* Sources */,
+				B3509241D7809FDAC4870C36F2FE65EB /* Frameworks */,
+				40FA6764B98066104A34A7F820A1711D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				594C0ED1E451B02709D4B45C549FAB9C /* PBXTargetDependency */,
+			);
+			name = "Pods-portal";
+			productName = "Pods-portal";
+			productReference = B7A1B708A8C1967EF56F135CAD2FC3C4 /* Pods_portal.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A6FE48D44BCDF6167B419EB108103975 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9F02DC628ACE7DF59D8EDA971E31B661 /* DMPagerViewController */,
+				0BFF7A7F7644655A3FE3BE90BC9FB0E5 /* DMPagerViewController-DMPagerViewController */,
+				A7BD91D3FE1406C6E9D9B28856C156AB /* Pods-portal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B5A886A23F5EC72350F1DDC4F714CF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A5C068E8210F49B3C519BBE8713E966 /* DMPagerViewController.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA0D6796D281A22D2EF8DA648014B7A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96A601EBE08FE65B57C71880453D0526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51F7BC7B28C5479D11C1460F9BFD6442 /* DMPagerNavigationBar.m in Sources */,
+				544232AF16ED5E36827737161ECA1E3B /* DMPagerViewController-dummy.m in Sources */,
+				50E840687D536556446995CF5C97DC87 /* DMPagerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F106D3169C9C7E89EC5ED94A3544E96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC9F8D2581007C8560997E5375E682F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A3C79203079C55F46073C5BFC0FDB82 /* Pods-portal-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		594C0ED1E451B02709D4B45C549FAB9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DMPagerViewController;
+			target = 9F02DC628ACE7DF59D8EDA971E31B661 /* DMPagerViewController */;
+			targetProxy = 73EF7BE159729FABD402546A121108B9 /* PBXContainerItemProxy */;
+		};
+		8A8D33B25BF4218D79956D780CADF4D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DMPagerViewController-DMPagerViewController";
+			target = 0BFF7A7F7644655A3FE3BE90BC9FB0E5 /* DMPagerViewController-DMPagerViewController */;
+			targetProxy = 0C067B71008BC6ED955BB248C4DF96DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B5B33235913957AFC9E40D076C550A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = DMPagerViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		26703DE72F1B397E451FF0D5D29653EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DMPagerViewController/DMPagerViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DMPagerViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DMPagerViewController/DMPagerViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DMPagerViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		536E4C59262CE8F66CA85DB32C5C5DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DAB49A31BD0B9712A21909CB63E8A20 /* Pods-portal.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-portal/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-portal/Pods-portal.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_portal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79889501738E72471DE1A68DC16F69AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = DMPagerViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		903DEE080CDE087015F1894A80E6BD4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5C251456E870694A249C73C2D1B06A8 /* Pods-portal.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-portal/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-portal/Pods-portal.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_portal;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C1096E3AC14B4494DE5D4CCCF4EF9B6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6967E63739DB9D4A6A40B8152C785D9A /* DMPagerViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DMPagerViewController/DMPagerViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DMPagerViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DMPagerViewController/DMPagerViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DMPagerViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4807226DBAEAC41BFAF919CE065B1A22 /* Build configuration list for PBXNativeTarget "DMPagerViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26703DE72F1B397E451FF0D5D29653EC /* Debug */,
+				C1096E3AC14B4494DE5D4CCCF4EF9B6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1B65C0402C70C06B36E44A38214BCC2 /* Build configuration list for PBXNativeTarget "DMPagerViewController-DMPagerViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79889501738E72471DE1A68DC16F69AF /* Debug */,
+				0B5B33235913957AFC9E40D076C550A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE682FC3AA68D1B83739A9D514ED42D5 /* Build configuration list for PBXNativeTarget "Pods-portal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				536E4C59262CE8F66CA85DB32C5C5DD3 /* Debug */,
+				903DEE080CDE087015F1894A80E6BD4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
