@@ -1,36 +1,23 @@
 //
-//  ConnectionsViewController.m
+//  SwipeViewController.m
 //  portal
 //
-//  Created by Neil Ballard on 11/22/15.
+//  Created by Neil Ballard on 12/13/15.
 //  Copyright © 2015 Neil_appworld. All rights reserved.
 //
 
+#import "EncountersViewController.h"
 #import "ConnectionsViewController.h"
-#import "DeviceManager.h"
-#import "AlbumsTableViewController.h"
-#import "DataAccess.h"
-#import "InstagramFieldViewController.h"
-#import "LinkedinFieldViewController.h"
-#import "SnapchatFieldViewController.h"
-#import "AccountTableViewCell.h"
-#import "FacebookFieldViewController.h"
-#import "ProfileViewController.h"
-#import "FBAccountViewController.h"
-#import "LinkedinAccountViewController.h"
-#import "UserProfileViewController.h"
-#import "UserAlbumsViewController.h"
+#import "UserMenuViewController.h"
+#import "UserAlbumViewController.h"
 
-@interface ConnectionsViewController ()
+@interface EncountersViewController ()
 
 @property (nonatomic, retain) UIView * background;
 @property (strong, nonatomic) IBOutlet UIImageView *pic;
 @property (strong, nonatomic) IBOutlet UIView *topbackground;
 @property (strong, nonatomic) IBOutlet UIView *pickbackground;
 
-@property (strong, nonatomic) IBOutlet UILabel *networksLabel;
-
-@property (nonatomic, retain) UINavigationBar * navBar;
 
 
 
@@ -43,12 +30,13 @@
 
 @end
 
-@implementation ConnectionsViewController
+@implementation EncountersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     
+    self.view.userInteractionEnabled = YES;
     CGRect full = [[UIScreen mainScreen]bounds];
     self.background = [[UIView alloc] initWithFrame:full];
     self.background.hidden = NO;
@@ -61,7 +49,6 @@
     [self styleNavBar];
     
     [self setupSearchTextField];
-    [self setupnetworkLabel];
     [self addLine];
     
     
@@ -70,92 +57,29 @@
     [self initTableView];
     
     [self addBottomLine];
-    
 
-    
-    
-    
+    // Do any additional setup after loading the view.
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorColor = [UIColor lightTextColor];
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+
+
 }
 
 
-- (void)initTableView {
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.tableBack addSubview:self.tableView];
-    self.tableView.scrollEnabled = YES;
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 1)];
-    
-
-    
-    CGFloat width = CGRectGetWidth([[UIScreen mainScreen] bounds]);
-    
-    
-    CGFloat pad = 0, height = 0, edgeInset = 0;
-    if([[DeviceManager sharedInstance] getIsIPhone5Screen])
-    {
-        pad = 0;
-        height = 500;
-        edgeInset = 100;
-    }
-    else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
-    {
-        pad = 0;
-        height = 570;
-        edgeInset = 100;
-    }
-    else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
-    {
-        pad = 0;
-        height = 700;
-        edgeInset = 110;
-    }
-    else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
-        pad = 0;
-        height = 500;
-        edgeInset = 80;
-    }
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, edgeInset, 0);
-
-    
-    
-    
-    NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.tableBack attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
-    NSLayoutConstraint *YConstraint = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.tableBack attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-    [self.view addConstraint:YConstraint];
-    [self.tableBack addConstraint:constraint1];
-    
-    /*
-     NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:self.pic attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:height];
-     [self.pickbackground addConstraint:constraint3];*/
-    
-    NSLayoutConstraint *constraint4 = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:width];
-    [self.tableBack addConstraint:constraint4];
-    
-}
 
 -(void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:YES];
     
-    //   self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-    //   self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    //    [self.navigationController.navigationBar setTranslucent:YES];
-    //   [self.navigationItem setHidesBackButton:YES];
-    
-}
-
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    [self.navigationItem setHidesBackButton:YES];
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     [self styleNavBar];
     
+
     
 }
+
 
 - (void)styleNavBar {
     
@@ -189,30 +113,42 @@
     self.navBar.translucent = YES;
     // 3. add a new navigation item w/title to the new nav bar
     UINavigationItem *newItem = [[UINavigationItem alloc] init];
-    self.navBar.backgroundColor = [UIColor whiteColor];
-    self.navBar.barTintColor = [UIColor whiteColor];
+    self.navBar.barTintColor = [UIColor whiteColor];//[UIColor blueColor];
+  //  self.navBar.tintColor = [UIColor clearColor];
+    self.navBar.translucent = NO;
+    
 
     
-    
-    UIImage *image = [[UIImage imageNamed:@"logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(goback)];
+    UIImage *connections_image = [[UIImage imageNamed:@"connections"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:connections_image  style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];
+    
+    UIImage *image = [[UIImage imageNamed:@"settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonPressed:)];
+    
+    
+    newItem.rightBarButtonItem = rightBtn;
     newItem.leftBarButtonItem = leftBtn;
-    
     
     
     UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [titleView setUserInteractionEnabled:NO];
-   
-    UIImage *connections_image = [[UIImage imageNamed:@"connections"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    [titleView setBackgroundImage:connections_image forState:UIControlStateNormal];
-//    NSString *titleText = @"Name";
-//    [titleView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    NSString *titleText = @"Portal";
+    [titleView setTitleColor:[self navColor] forState:UIControlStateNormal];
     
-//    [titleView setTitle:titleText forState:UIControlStateNormal];
+    [titleView setTitle:titleText forState:UIControlStateNormal];
+    
+    titleView.titleLabel.font = [UIFont fontWithName:@"Superclarendon-Regular" size:21.0];
+    
+    titleView.layer.shadowRadius = 0.05;
+    titleView.layer.shadowOpacity = 0.02;
+    
+    titleView.layer.masksToBounds = NO;
+    
+  //  titleView.layer.shouldRasterize = YES;
     
     
     newItem.titleView = titleView;
@@ -233,6 +169,91 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)leftButtonPressed:(id)sender {
+    
+    UserMenuViewController *account = [[UserMenuViewController alloc] init];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.6f;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionReveal;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    
+    [self.navigationItem setHidesBackButton:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController pushViewController:account animated:YES];
+    
+}
+
+
+- (void)initTableView {
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    self.tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableBack addSubview:self.tableView];
+    self.tableView.scrollEnabled = YES;
+    self.tableView.backgroundColor = [UIColor lightTextColor];
+    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 1)];
+    
+    
+    
+    CGFloat width = CGRectGetWidth([[UIScreen mainScreen] bounds]);
+    
+    
+    CGFloat pad = 0, height = 0, edgeInset = 0;
+    if([[DeviceManager sharedInstance] getIsIPhone5Screen])
+    {
+        pad = 0;
+        height = 500;
+        edgeInset = 100;
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
+    {
+        pad = 0;
+        height = 570;
+        edgeInset = 100;
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
+    {
+        pad = 0;
+        height = 700;
+        edgeInset = 110;
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
+        pad = 0;
+        height = 500;
+        edgeInset = 80;
+    }
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, edgeInset, 0);
+    
+    
+    
+    
+    NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.tableBack attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+    NSLayoutConstraint *YConstraint = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.tableBack attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    [self.view addConstraint:YConstraint];
+    [self.tableBack addConstraint:constraint1];
+    
+    /*
+     NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:self.pic attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:height];
+     [self.pickbackground addConstraint:constraint3];*/
+    
+    NSLayoutConstraint *constraint4 = [NSLayoutConstraint constraintWithItem:self.tableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:width];
+    [self.tableBack addConstraint:constraint4];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self styleNavBar];
+    
+    
+}
+
 
 - (void)setupSearchTextField {
     self.searchTextField = [[UITextField alloc] init];
@@ -276,7 +297,7 @@
     }
     
     self.searchTextField.backgroundColor = [self grayColor];
-    self.searchTextField.placeholder = @"Search Connections";
+    self.searchTextField.placeholder = @"Search Encounters";
     self.searchTextField.textAlignment = NSTextAlignmentCenter;
     self.searchTextField.textColor = [UIColor blackColor];
     self.searchTextField.layer.shadowRadius = 0.01;
@@ -357,81 +378,52 @@
     
 }
 
-- (void)setupnetworkLabel {
-   // UIFont *font;
-    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+- (CGFloat)tableView:(UITableView*)tableView
+heightForFooterInSection:(NSInteger)section {
     
-    CGFloat width = window.frame.size.width - 30;
-    CGFloat height = 0;
+    CGFloat pad;
+    if([[DeviceManager sharedInstance] getIsIPhone5Screen])
+    {
+        pad = 5;
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
+    {
+        pad = 240;
+        
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
+    {
+        pad = 270;
+        
+        
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
+        pad = 140;
+        
+    }
     
-    self.networksLabel = [[UILabel alloc] init];
-    
-    self.networksLabel.font = [UIFont systemFontOfSize:5];
-    height = 15;
-    
-    
-    
-    [self.networksLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.networksLabel invalidateIntrinsicContentSize];
-    self.networksLabel.font = [UIFont fontWithName:@"Verdana" size:17.0f];
-    self.networksLabel.textColor = [self cdBlue];
-    
-    self.networksLabel.text = @"Connections";
-    
-    [self.view addSubview:self.networksLabel];
-    
-    NSDictionary *viewsDictionary = @{@"top":self.searchTextField, @"label" : self.networksLabel};
-    NSArray *constraint1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-17-[label]" options:0 metrics:nil views:viewsDictionary];
-    [self.view addConstraints:constraint1];
-    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[top]-6-[label]" options:0 metrics:nil views:viewsDictionary];
-    [self.view addConstraints:constraint2];
-    
+    return pad;
 }
 
 
-
-/*
-
-
-
-
-
-
-
-*****USE left swipe view for able view
- Press NB to reveal social posibilities
-
-
-
-
-
-
-
-
-
-*/
-
-
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Number of rows is the number of time zones in the region for the specified section.
-    return 20;
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *MyIdentifier = @"MyReuseIdentifier";
     // UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    ConnectionsTableViewCell *cell = (ConnectionsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    EncounterTableViewCell *cell = (EncounterTableViewCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
     
     if (cell == nil) {
-        cell = [[ConnectionsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        cell = [[EncounterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
     
     UIFont *myFont = [ UIFont fontWithName: @"Arial" size: 19.0 ];
@@ -439,27 +431,38 @@
     cell.textLabel.textColor = [UIColor lightGrayColor];
     
     cell.pic.userInteractionEnabled = YES;
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(picturePressed:)];
+
+    cell.backgroundColor = [UIColor lightTextColor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushDetailView:)];
     [cell.pic addGestureRecognizer:tapGesture];
     
-    if (indexPath.row == 0) {
-        
-   //     cell.textLabel.text = @"Facebook";
-        cell.subLabel.text = @"3 Networks Available";
+    [cell.blurredBackground addGestureRecognizer:tapGesture];
+    [cell.backgroundView addGestureRecognizer:tapGesture];
 
+    if (indexPath.section == 0) {
         
-    }else {
-        
-        //      if ([[DataAccess singletonInstance] getInstagram] != nil) {
-        //          cell.textLabel.text = [[DataAccess singletonInstance] getInstagram];
-        //      }else{
-   //     cell.textLabel.text = @"Instagram";
-        //      }
-        cell.subLabel.text = @"3 Networks Available";
+        cell.nameLabel.text = @"Jessica Marone";
+        cell.dateLabel.text = @"Encountered 5 hours ago";
+        cell.pic.image = [UIImage imageNamed:@"blurred"];
+        cell.blurredBackground.image = [UIImage imageNamed:@"blurred"];
+        cell.networksLabel.text = @"No Public Networks";
+        cell.networksLabel.textColor = [UIColor lightGrayColor];
         
     }
-    
+    else{
+
+        NSString *fname = [[[DataAccess singletonInstance] getName] stringByAppendingString:@" "];
+        
+        
+        cell.nameLabel.text = [fname stringByAppendingString:[[DataAccess singletonInstance] getLName]];
+        cell.pic.image = [[DataAccess singletonInstance] getProfileImage];
+        cell.blurredBackground.image = [[DataAccess singletonInstance] getProfileImage];
+        cell.dateLabel.text = @"Encountered 3 hours ago";
+        cell.networksLabel.text = @"Public Networks Available";
+        cell.networksLabel.textColor = [UIColor lightGrayColor];
+
+        
+    }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -472,18 +475,18 @@
     CGFloat height = 0;
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
-        height =  90;
+        height =  260;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
     {
-        height = 100;
+        height = 200;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
     {
-        height = 110;
+        height = 200;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
-        height = 85;
+        height = 200;
     }
     return height; //(height / 5);//[self getCellHeight];
 }
@@ -544,9 +547,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-
-    ConnectionsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-
+    
+    EncounterTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
     
     
 }
@@ -570,27 +573,27 @@
     CGFloat pad = 0, height = 0;
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
-        pad = 2;
+        pad = 14;
         height = 1;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
     {
-        pad = 2;
+        pad = 14;
         height = 1;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
     {
-        pad = 2;
+        pad = 14;
         height = 1;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
-        pad = 2;
+        pad = 14;
         height = 1;
     }
     
     
     
-    NSDictionary *viewsDictionary = @{@"top":self.networksLabel, @"line": self.Line};
+    NSDictionary *viewsDictionary = @{@"top":self.searchTextField, @"line": self.Line};
     NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.Line attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
     NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[top]-pad-[line]" options:0 metrics:@{@"pad":[NSNumber numberWithFloat:pad]} views:viewsDictionary];
     [self.view addConstraint:constraint1];
@@ -654,7 +657,41 @@
     
 }
 
+- (void)rightButtonPressed:(id)sender {
+    
+    
+    ConnectionsViewController *account = [[ConnectionsViewController alloc] init];
+    [self.navigationItem setHidesBackButton:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController pushViewController:account animated:YES];
+    
+}
 
+-(void) pushDetailView:(id)sender
+{
+    // do your pushViewController
+    
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *sourceImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(sourceImage) forKey:@"ScreenShot"];
+
+    UserAlbumViewController *intro = [[UserAlbumViewController alloc]init];
+    self.parentViewController.providesPresentationContextTransitionStyle = YES;
+    self.parentViewController.definesPresentationContext = YES;
+    [intro setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+    intro.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self.parentViewController presentViewController:intro animated:NO completion:nil];
+
+}
+
+-(UIColor*)navColor{
+    
+    return [UIColor colorWithRed:0.0 green:172.0f/255.0f blue:237.0f/255.0f alpha:1.0];
+}
 
 
 -(UIColor*)grayColor{
@@ -684,11 +721,6 @@
     
 }
 
--(void)goback{
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
 - (UIColor *) cdBlue {
     return [UIColor colorWithRed:0.00 green:0.59 blue:0.84 alpha:1.0];
@@ -696,26 +728,6 @@
 
 - (UIColor *) cdNavBlue {
     return [UIColor colorWithRed:0.00 green:0.59 blue:0.85 alpha:1.0];
-}
-
-- (void)picturePressed:(id)sender {
-    
-    UIGraphicsBeginImageContext(self.view.bounds.size);
-    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *sourceImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [[NSUserDefaults standardUserDefaults] setObject:UIImagePNGRepresentation(sourceImage) forKey:@"ScreenShot2"];
-    
-    UserAlbumsViewController *intro = [[UserAlbumsViewController alloc]init];
-    self.parentViewController.providesPresentationContextTransitionStyle = YES;
-    self.parentViewController.definesPresentationContext = YES;
-    [intro setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-    intro.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    
-    [self.parentViewController presentViewController:intro animated:NO completion:nil];
-
-    
 }
 
 

@@ -28,8 +28,10 @@
 @property (nonatomic, unsafe_unretained) BOOL snapchatPublic;
 
 
+-(void)setScreenShot:(UIImage*)image;
+-(UIImage*)getScreenShot;
 
-
+-(UIImage*)getScreenShot2;
 
 
 
@@ -108,5 +110,7 @@
 -(void)setName:name;
 -(NSString*)getName;
 
+-(void)setLName:name;
+-(NSString*)getLName;
 
 @end

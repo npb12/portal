@@ -206,6 +206,31 @@
     return NO;
 }
 
+-(void)setScreenShot:(UIImage*)image{
+    
+    DataAccess *Data = [DataAccess singletonInstance];
+    Data.profileImage = image;
+    [Data persistToUserDefaults];
+    
+    
+}
+
+-(UIImage*)getScreenShot{
+    
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ScreenShot"];
+    UIImage* image = [UIImage imageWithData:imageData];
+    return image;
+    
+}
+
+-(UIImage*)getScreenShot2{
+    
+    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ScreenShot2"];
+    UIImage* image = [UIImage imageWithData:imageData];
+    return image;
+    
+}
+
 
 -(void)setProfileImage:(UIImage*)image{
     
@@ -288,6 +313,21 @@
     
     NSString *name = [[NSUserDefaults standardUserDefaults]
                       stringForKey:@"username"];
+    
+    return name;
+}
+
+-(void)setLName:(id)name{
+    
+    
+    [[NSUserDefaults standardUserDefaults] setObject:name forKey:@"usernameLast"];
+    
+}
+
+-(NSString*)getLName{
+    
+    NSString *name = [[NSUserDefaults standardUserDefaults]
+                      stringForKey:@"usernameLast"];
     
     return name;
 }

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DraggableViewBackground.h"
+#import "DeviceManager.h"
+#import "EncounterTableViewCell.h"
 
 
-@interface SwipeViewController : UIViewController
+@interface EncountersViewController : UIViewController<UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property (nonatomic, strong) UINavigationBar *navBar;
 

@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "DataAccess.h"
 #import "DeviceManager.h"
-#import "SwipeViewController.h"
+#import "EncountersViewController.h"
 
 
 @interface LoginViewController ()
@@ -41,9 +41,9 @@
     [self.view addSubview:self.background];
     
     
-
     [self setLoginBtn];
-    
+    [self setLinkedinLoginBtn];
+
 }
 
 
@@ -76,7 +76,7 @@
                      [[DataAccess singletonInstance] setUserLoginStatus:YES];
                      [[DataAccess singletonInstance] setUsefbOptionStatus:YES];
                      [[DataAccess singletonInstance] setisLoggedInWithFB:YES];
-                     SwipeViewController *root = [[SwipeViewController alloc] init];
+                     EncountersViewController *root = [[EncountersViewController alloc] init];
                      [self.navigationItem setHidesBackButton:YES];
                      [self.navigationController setNavigationBarHidden:NO animated:NO];
                      [self.navigationController pushViewController:root animated:YES];
@@ -98,12 +98,14 @@
     {
         NSLog(@"Token is available : %@",[[FBSDKAccessToken currentAccessToken]tokenString]);
         
-        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"link, first_name"}]
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"link, first_name, last_name"}]
          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
              if (!error)
              {
                  NSString *name = [result objectForKey:@"first_name"];
                  [[DataAccess singletonInstance] setName:name];
+                 NSString *lname = [result objectForKey:@"last_name"];
+                 [[DataAccess singletonInstance] setLName:lname];
                  
                  NSString *link = [result objectForKey:@"link"];
 
@@ -216,7 +218,7 @@
          
          
          
-            SwipeViewController *root = [[SwipeViewController alloc] init];
+            EncountersViewController *root = [[EncountersViewController alloc] init];
             [self.navigationItem setHidesBackButton:YES];
             [self.navigationController setNavigationBarHidden:NO animated:NO];
             [self.navigationController pushViewController:root animated:YES];
