@@ -1492,7 +1492,7 @@
         [self.navigationController setNavigationBarHidden:NO animated:NO];
         [self.navigationController pushViewController:album animated:NO];
         
-    }
+    } 
 }
 
 -(IBAction)instaclicked:(id)sender{
