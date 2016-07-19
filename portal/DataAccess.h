@@ -112,5 +112,9 @@
 
 -(void)setLName:name;
 -(NSString*)getLName;
+- (void)saveOutgoingAvatarSetting:(BOOL)value;
+- (BOOL)outgoingAvatarSetting;
+- (void)saveIncomingAvatarSetting:(BOOL)value;
+- (BOOL)incomingAvatarSetting;
 
 @end

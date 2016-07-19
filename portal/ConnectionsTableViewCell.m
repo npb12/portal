@@ -151,18 +151,9 @@
     self.pic.translatesAutoresizingMaskIntoConstraints = NO;
     [self.pic invalidateIntrinsicContentSize];
     
-    NSData* imageData = [[NSUserDefaults standardUserDefaults] objectForKey:@"ProfileImage"];
-    UIImage* image = [UIImage imageWithData:imageData];
     
     self.pic.layer.masksToBounds = YES;
 
-    
-    
-    if (image != nil) {
-        self.pic.image = [[DataAccess singletonInstance] getProfileImage];
-    }else{
-        self.pic.image = [UIImage imageNamed:@"image_placeholder.png"];
-    }
     
     self.pic.alpha = 2.0;
     
@@ -241,11 +232,6 @@
     self.nameLabel.textColor = [UIColor blackColor];
     
     
-    NSString *fname = [[[DataAccess singletonInstance] getName] stringByAppendingString:@" "];
-    
-    
-    self.nameLabel.text = [fname stringByAppendingString:[[DataAccess singletonInstance] getLName]];
-    
     CGFloat pad = 0, pad2 = 0;
     self.nameLabel.font = [UIFont fontWithName:@"Arial-BoldMT" size:16];
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
@@ -297,11 +283,6 @@
     [self.subLabel invalidateIntrinsicContentSize];
     self.subLabel.textColor = [self cdBlue];//[UIColor lightGrayColor];
     
-    
-    NSString *fname = [[[DataAccess singletonInstance] getName] stringByAppendingString:@" "];
-    
-    
-    self.subLabel.text = [fname stringByAppendingString:[[DataAccess singletonInstance] getLName]];
     
     CGFloat pad = 0, pad2 = 0;
     self.subLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:13];
@@ -409,7 +390,6 @@
     [self.dateLabel invalidateIntrinsicContentSize];
     self.dateLabel.textColor = [UIColor lightGrayColor];
     
-    self.dateLabel.text = @"3d";
     
     CGFloat pad = 0, pad2 = 0;
     self.dateLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:11];

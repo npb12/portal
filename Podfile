@@ -6,7 +6,7 @@ use_frameworks!
 link_with 'portal', 'portalTests', 'portalUITests'
 
 target 'portal' do
-  pod 'DMPagerViewController'
+  pod 'JSQMessagesViewController'
 end
 
 target 'portalTests' do

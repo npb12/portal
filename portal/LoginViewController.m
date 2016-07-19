@@ -10,7 +10,7 @@
 #import "DataAccess.h"
 #import "DeviceManager.h"
 #import "EncountersViewController.h"
-
+#import "HomeVCViewController.h"
 
 @interface LoginViewController ()
 
@@ -76,14 +76,11 @@
                      [[DataAccess singletonInstance] setUserLoginStatus:YES];
                      [[DataAccess singletonInstance] setUsefbOptionStatus:YES];
                      [[DataAccess singletonInstance] setisLoggedInWithFB:YES];
-                     EncountersViewController *root = [[EncountersViewController alloc] init];
+                     HomeVCViewController *root = [[HomeVCViewController alloc] init];
                      [self.navigationItem setHidesBackButton:YES];
                      [self.navigationController setNavigationBarHidden:NO animated:NO];
                      [self.navigationController pushViewController:root animated:YES];
                      //[[DataAccess singletonInstance] setName:name];
-
-   
-                     
                      
                  }
              }

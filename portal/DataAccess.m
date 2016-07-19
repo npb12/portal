@@ -8,11 +8,35 @@
 
 #import "DataAccess.h"
 
+static NSString * const kSettingIncomingAvatar = @"kSettingIncomingAvatar";
+static NSString * const kSettingOutgoingAvatar = @"kSettingOutgoingAvatar";
+
 @implementation DataAccess
 
 
 
 #pragma mark - Account Methods
+
+
+-(void)saveOutgoingAvatarSetting:(BOOL)value
+{
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:kSettingOutgoingAvatar];
+}
+
+- (BOOL)outgoingAvatarSetting
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kSettingOutgoingAvatar];
+}
+
+- (void)saveIncomingAvatarSetting:(BOOL)value
+{
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:kSettingIncomingAvatar];
+}
+
+- (BOOL)incomingAvatarSetting
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kSettingIncomingAvatar];
+}
 
 - (BOOL)UserIsLoggedIn {
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"isLoggedIn"]) {

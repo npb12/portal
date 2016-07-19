@@ -27,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"hit");
     
     self.navigationController.navigationBarHidden = YES;
     [self.navigationItem setHidesBackButton:YES];
@@ -104,7 +103,7 @@
     CGFloat pad = 0, Offset = 0;
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
-        pad = 1.5f;
+        pad = 0;
         Offset = 3;
         //   self.background.layer.cornerRadius = 40;
     }
@@ -128,8 +127,8 @@
         //    self.background.layer.cornerRadius = 105;
     }
     
-    CGFloat width = CGRectGetWidth([[UIScreen mainScreen] bounds]) - Offset;
-    CGFloat height = CGRectGetHeight([[UIScreen mainScreen] bounds]) - Offset;
+    CGFloat width = CGRectGetWidth([[UIScreen mainScreen] bounds]);//- Offset;
+    CGFloat height = CGRectGetHeight([[UIScreen mainScreen] bounds]); //- Offset;
     
     
     
@@ -244,7 +243,7 @@
     
     
     if (image != nil) {
-        self.propic.image = [[DataAccess singletonInstance] getProfileImage];
+        self.propic.image = [UIImage imageNamed:@"girl1"];
     }else{
         self.propic.image = [UIImage imageNamed:@"image_placeholder.png"];
     }
@@ -317,7 +316,7 @@
     [self.nameLabel invalidateIntrinsicContentSize];
     self.nameLabel.textColor = [UIColor whiteColor];
     
-    self.nameLabel.text = [[[DataAccess singletonInstance] getName] stringByAppendingString:[[DataAccess singletonInstance] getLName]];
+    self.nameLabel.text = @"Brendan Rogers";
     
     self.nameLabel.text = [self.nameLabel.text stringByAppendingString:@", 24"];
     
@@ -511,8 +510,7 @@
     [self.linkedinText invalidateIntrinsicContentSize];
     self.linkedinText.textColor = [UIColor whiteColor];
     
-    NSString *fname = [[[DataAccess singletonInstance] getName] stringByAppendingString:@" "];
-    self.linkedinText.text = [fname stringByAppendingString:[[DataAccess singletonInstance] getLName]];
+    self.linkedinText.text = @"Jessica Marone";
     self.linkedinText.layer.shadowRadius = 3.0;
     self.linkedinText.layer.shadowOpacity = 0.5;
     
@@ -565,7 +563,7 @@
     [self.linkedinSubtext invalidateIntrinsicContentSize];
     self.linkedinSubtext.textColor = [UIColor lightTextColor];
     
-    self.linkedinSubtext.text = @"Works at VMWare";
+    self.linkedinSubtext.text = @"Works at Hub International";
     self.linkedinSubtext.layer.shadowRadius = 3.0;
     self.linkedinSubtext.layer.shadowOpacity = 0.5;
     
@@ -956,11 +954,12 @@
 */
 -(void)FacebookButtonClicked{
     
-    //    NSString *facebook =  [[DataAccess singletonInstance] getFacebook];
+ //   NSString *facebook =  [[DataAccess singletonInstance] getFacebook];
     
     NSString *url = @"fb://profile/";
-    //  NSURL *bUrl = [NSURL URLWithString:url];
-    //  NSURL *fbURL = [bUrl URLByAppendingPathComponent:facebook];
+ //   url = [url stringByAppendingString:facebook];
+    //NSURL *bUrl = [NSURL URLWithString:url];
+    //NSURL *fbURL = [bUrl URLByAppendingPathComponent:facebook];
     
     NSURL *fbURL = [NSURL URLWithString:url];
     
@@ -1040,18 +1039,18 @@
     NSURL *linkedinOpenURL = [NSURL URLWithString:url];
     
     
-    if ([[UIApplication sharedApplication] openURL:linkedinOpenURL]) {
+  //  if ([[UIApplication sharedApplication] openURL:linkedinOpenURL]) {
         
         [[LISDKDeeplinkHelper sharedInstance] viewOtherProfile:self.linkedinId withState:self.linkedinId showGoToAppStoreDialog:YES success:nil error:nil];
         
-    }else{
+  /*  }else{
         
         WebViewController *album = [[WebViewController alloc] init];
         [self.navigationItem setHidesBackButton:NO];
         [self.navigationController setNavigationBarHidden:NO animated:NO];
         [self.navigationController pushViewController:album animated:NO];
         
-    }
+    }*/
 }
 
 @end

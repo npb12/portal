@@ -27,23 +27,28 @@
 @property (strong, nonatomic) UIView *socialbackground2;
 @property (strong, nonatomic) UIView *socialbackground3;
 @property (strong, nonatomic) UIView *socialbackground4;
+@property (strong, nonatomic) UIView *socialbackground5;
 
 
 @property (strong, nonatomic) UIImageView *fbIcon;
 @property (strong, nonatomic) UIImageView *instaIcon;
 @property (strong, nonatomic) UIImageView *linkedinIcon;
 @property (strong, nonatomic) UIImageView *twitterIcon;
-
+@property (strong, nonatomic) UIImageView *snapchatIcon;
 
 @property (strong, nonatomic) UILabel *fbText;
 @property (strong, nonatomic) UILabel *instaText;
 @property (strong, nonatomic) UILabel *linkedinText;
 @property (strong, nonatomic) UILabel *twitterText;
+@property (strong, nonatomic) UILabel *snapchatText;
 
 
 @property (strong, nonatomic) UILabel *fbSubtext;
 @property (strong, nonatomic) UILabel *instaSubtext;
 @property (strong, nonatomic) UILabel *linkedinSubtext;
 @property (strong, nonatomic) UILabel *twitterSubtext;
+@property (strong, nonatomic) UILabel *snapchatSubtext;
+
+
 
 @end

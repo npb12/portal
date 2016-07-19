@@ -20,6 +20,7 @@
 #import "LinkedinAccountViewController.h"
 #import "UserProfileViewController.h"
 #import "UserAlbumsViewController.h"
+#import "MessagesViewController.h"
 
 @interface ConnectionsViewController ()
 
@@ -189,24 +190,24 @@
     self.navBar.translucent = YES;
     // 3. add a new navigation item w/title to the new nav bar
     UINavigationItem *newItem = [[UINavigationItem alloc] init];
-    self.navBar.backgroundColor = [UIColor whiteColor];
-    self.navBar.barTintColor = [UIColor whiteColor];
+  //  self.navBar.backgroundColor = [UIColor whiteColor];
+    self.navBar.barTintColor = [self cdNavBlue];
 
     
     
-    UIImage *image = [[UIImage imageNamed:@"logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *image = [[UIImage imageNamed:@"plus"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(goback)];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(goback)];
     
     
-    newItem.leftBarButtonItem = leftBtn;
+    newItem.rightBarButtonItem = rightBtn;
     
     
     
     UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [titleView setUserInteractionEnabled:NO];
    
-    UIImage *connections_image = [[UIImage imageNamed:@"connections"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *connections_image = [[UIImage imageNamed:@"connect_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     [titleView setBackgroundImage:connections_image forState:UIControlStateNormal];
 //    NSString *titleText = @"Name";
@@ -389,38 +390,13 @@
 }
 
 
-
-/*
-
-
-
-
-
-
-
-*****USE left swipe view for able view
- Press NB to reveal social posibilities
-
-
-
-
-
-
-
-
-
-*/
-
-
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Number of rows is the number of time zones in the region for the specified section.
-    return 20;
+    return 5;
 }
 
 
@@ -439,27 +415,52 @@
     cell.textLabel.textColor = [UIColor lightGrayColor];
     
     cell.pic.userInteractionEnabled = YES;
+    cell.messageLabel.userInteractionEnabled = YES;
+
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(picturePressed:)];
     [cell.pic addGestureRecognizer:tapGesture];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(messagePressed:)];
+    [cell.messageLabel addGestureRecognizer:tap];
+    
     if (indexPath.row == 0) {
         
-   //     cell.textLabel.text = @"Facebook";
+        cell.subLabel.text = @"5 Networks Available";
+        cell.pic.image = [UIImage imageNamed:@"blurred"];
+        cell.nameLabel.text = @"Stephanie Lazio";
+        cell.dateLabel.text = @"4h";
+        
+    }else if (indexPath.row == 1) {
+        
         cell.subLabel.text = @"3 Networks Available";
+        cell.pic.image = [UIImage imageNamed:@"powers"];
+        cell.nameLabel.text = @"Greg Bernard";
+        cell.dateLabel.text = @"7h";
+
+    }else if (indexPath.row == 2) {
+        
+        cell.subLabel.text = @"2 Networks Available";
+        cell.pic.image = [UIImage imageNamed:@"sweet_sol"];
+        cell.nameLabel.text = @"Alex Rider";
+        cell.dateLabel.text = @"1d";
+        
+    }else if (indexPath.row == 3) {
+        
+        cell.subLabel.text = @"4 Networks Available";
+        cell.pic.image = [UIImage imageNamed:@"steve"];
+        cell.nameLabel.text = @"Lance Stephenson";
+        cell.dateLabel.text = @"1d";
 
         
-    }else {
+    }else if (indexPath.row == 4) {
         
-        //      if ([[DataAccess singletonInstance] getInstagram] != nil) {
-        //          cell.textLabel.text = [[DataAccess singletonInstance] getInstagram];
-        //      }else{
-   //     cell.textLabel.text = @"Instagram";
-        //      }
         cell.subLabel.text = @"3 Networks Available";
-        
+        cell.pic.image = [UIImage imageNamed:@"blurred"];
+        cell.nameLabel.text = @"Steven Irwin";
+        cell.dateLabel.text = @"2d";
+
     }
-    
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
@@ -695,7 +696,7 @@
 }
 
 - (UIColor *) cdNavBlue {
-    return [UIColor colorWithRed:0.00 green:0.59 blue:0.85 alpha:1.0];
+    return [UIColor colorWithRed:0.2588 green: 0.5216 blue: 0.9569 alpha:1.0];
 }
 
 - (void)picturePressed:(id)sender {
@@ -715,6 +716,14 @@
     
     [self.parentViewController presentViewController:intro animated:NO completion:nil];
 
+    
+}
+
+- (void)messagePressed:(id)sender {
+    
+    MessagesViewController *message = [[MessagesViewController alloc]init];
+    [self.navigationController pushViewController:message animated:NO];
+    
     
 }
 

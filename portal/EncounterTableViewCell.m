@@ -28,10 +28,10 @@
         // configure control(s)
         self.backgroundColor = [UIColor clearColor];
         self.backgroundColor =[UIColor clearColor];
-        
         [self addCellBackground];
     
         [self addBlurredBackground];
+        [self addAdBackground];
         [self addProfileBackground];
         [self addProfileImage];
         [self setupNameLabel];
@@ -52,7 +52,7 @@
         
         [self addLabel3];
         [self addIcon3];
-        
+        [self addAdButton];
 
         
     }
@@ -228,7 +228,87 @@
 }
 
 
+- (void)addAdBackground {
+    
+    
+    
+    
+    self.adBackground = [[UIImageView alloc]initWithFrame:self.backgroundView.frame];
+    
+    self.adBackground.backgroundColor = [self titleColor];
+    self.adBackground.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.adBackground invalidateIntrinsicContentSize];
+    
+    
+    self.adBackground.layer.masksToBounds = NO;
+    self.adBackground.layer.shadowOffset = CGSizeMake(-.1, .2);
+    self.adBackground.layer.shadowRadius = .5;
+    self.adBackground.layer.shadowOpacity = 0.5;
+    
+    self.adBackground.userInteractionEnabled = YES;
+    
+    
+    [self.backgroundView addSubview:self.adBackground];
+    
+    
+    CGFloat pad = 0, height = 0;
+    CGFloat width = 0, pad2 = 0;
+    if([[DeviceManager sharedInstance] getIsIPhone5Screen])
+    {
+        pad = 7;
+        //    height = 58;
+        //      width = 58;
+        pad2 = 0;
+        self.pickbackground.layer.cornerRadius = 28;
+        
+        height = 170;
+        
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
+    {
+        pad = 0;
+        //     height = 68;
+        //     width = 68;
+        pad2 = 0;
+        self.pickbackground.layer.cornerRadius = 32;
+        height = 200;
+        
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone6PlusScreen])
+    {
+        pad = 0;
+        //      height = 74;
+        //       width = 76;
+        pad2 = 0;
+        self.pickbackground.layer.cornerRadius = 35;
+    }
+    else if ([[DeviceManager sharedInstance] getIsIPhone4Screen] || [[DeviceManager sharedInstance] getIsIPad]) {
+        pad = 0;
+        //      height = 58;
+        //       width = 58;
+        pad2 = 0;
+        self.pickbackground.layer.cornerRadius = 28;
+        
+    }
+    
+    width = self.frame.size.width - 40;
+    
+    
+    NSDictionary *viewsDictionary = @{@"back":self.adBackground, @"top": self};
+    NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.adBackground attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.backgroundView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+    
+    NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-pad-[back]" options:0 metrics:@{@"pad":[NSNumber numberWithFloat:pad]} views:viewsDictionary];
+    [self addConstraint:constraint1];
+    [self addConstraints:constraint2];
+    
+    NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:self.adBackground attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:height];
+    [self addConstraint:constraint3];
+    
+    NSLayoutConstraint *constraint4 = [NSLayoutConstraint constraintWithItem:self.adBackground attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:width];
+    [self addConstraint:constraint4];
 
+    
+}
 
 
 - (void)addProfileBackground {
@@ -1156,20 +1236,74 @@
     
 }
 
+
+ - (void)addAdButton{
+ 
+ self.adButton = [[UIButton alloc]init];
+     
+     self.adButton=[UIButton buttonWithType:UIButtonTypeCustom];
+
+     self.adButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+     
+     self.adButton.layer.cornerRadius = 3.0;
+
+     
+     
+     [self.adButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+     self.adButton.titleEdgeInsets = UIEdgeInsetsMake(15, 0, 15, 0);
+
+ self.adButton.backgroundColor = [UIColor whiteColor];
+     self.adButton.layer.borderColor = [UIColor blueColor].CGColor;
+     self.adButton.layer.borderWidth = 1;
+     
+     [self.adButton setTitle:@"View Offer" forState:UIControlStateNormal];
+ //  CGFloat width = CGRectGetWidth([[UIScreen mainScreen] bounds]) - 8;
+ self.adButton.translatesAutoresizingMaskIntoConstraints = NO;
+ [self.adButton invalidateIntrinsicContentSize];
+
+
+ self.adButton.alpha = 100.0;
+ self.adButton.layer.shadowOffset = CGSizeMake(-.1, .2);
+ self.adButton.layer.shadowRadius = 0.4;
+ self.adButton.layer.shadowOpacity = 0.5;
+
+
+ //self.adButton.layer.masksToBounds = YES;
+ 
+ [self.backgroundView addSubview:self.adButton];
+ 
+
+ 
+ 
+ 
+     NSDictionary *viewsDictionary = @{@"icon": self.adButton, @"top": self.Line};
+     NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.adButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.backgroundView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
+     NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[top]-pad-[icon]" options:0 metrics:@{@"pad":[NSNumber numberWithFloat:7]} views:viewsDictionary];
+     [self addConstraint:constraint1];
+     [self addConstraints:constraint2];
+ 
+     NSLayoutConstraint *constraint3 = [NSLayoutConstraint constraintWithItem:self.adButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:30];
+     [self addConstraint:constraint3];
+ 
+     NSLayoutConstraint *constraint4 = [NSLayoutConstraint constraintWithItem:self.adButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:135];
+     [self addConstraint:constraint4];
+ 
+}
+
 -(UIColor*)lineColor{
-    
+ 
     return [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
-    
-    
+ 
+ 
 }
 
 -(UIColor*)titleColor{
-    
+ 
     return [UIColor colorWithRed:0.20 green:0.80 blue:1.00 alpha:1.0];
 }
 
 -(UIColor*)grayColor{
-    
+ 
     return [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0];
 }
 

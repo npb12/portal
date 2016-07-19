@@ -48,8 +48,8 @@
     
     [self styleNavBar];
     
-    [self setupSearchTextField];
-    [self addLine];
+ //   [self setupSearchTextField];
+ //   [self addLine];
     
     
     [self addTableContainer];
@@ -64,6 +64,17 @@
     self.tableView.separatorInset = UIEdgeInsetsZero;
 
 
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+        // self.title = @"My Title";
+    }
+    
+    return self;
 }
 
 
@@ -113,31 +124,33 @@
     self.navBar.translucent = YES;
     // 3. add a new navigation item w/title to the new nav bar
     UINavigationItem *newItem = [[UINavigationItem alloc] init];
-    self.navBar.barTintColor = [UIColor whiteColor];//[UIColor blueColor];
+    self.navBar.barTintColor = [self cdNavBlue];//[UIColor blueColor];
   //  self.navBar.tintColor = [UIColor clearColor];
-    self.navBar.translucent = NO;
+  //  self.navBar.translucent = NO;
+    
+  //  [self.navBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     
 
     
-    UIImage *connections_image = [[UIImage imageNamed:@"connections"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *image = [[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     
-    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:connections_image  style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:image  style:UIBarButtonItemStylePlain target:self action:@selector(rightButtonPressed:)];
     
-    UIImage *image = [[UIImage imageNamed:@"settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+ //   UIImage *image = [[UIImage imageNamed:@"settings"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonPressed:)];
+  //  UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonPressed:)];
     
     
     newItem.rightBarButtonItem = rightBtn;
-    newItem.leftBarButtonItem = leftBtn;
+  //  newItem.leftBarButtonItem = leftBtn;
     
     
     UIButton *titleView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
     [titleView setUserInteractionEnabled:NO];
     
     NSString *titleText = @"Portal";
-    [titleView setTitleColor:[self navColor] forState:UIControlStateNormal];
+    [titleView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     [titleView setTitle:titleText forState:UIControlStateNormal];
     
@@ -344,7 +357,7 @@
     CGFloat pad = 0, height = 0;
     if([[DeviceManager sharedInstance] getIsIPhone5Screen])
     {
-        pad = 0;
+        pad = 5;
         height = 500;
     }
     else if ([[DeviceManager sharedInstance] getIsIPhone6Screen])
@@ -364,7 +377,7 @@
     
     
     
-    NSDictionary *viewsDictionary = @{@"back":self.tableBack, @"top": self.Line};
+    NSDictionary *viewsDictionary = @{@"back":self.tableBack, @"top": self.navBar};
     NSLayoutConstraint *constraint1 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.tableBack attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0];
     NSArray *constraint2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[top]-pad-[back]" options:0 metrics:@{@"pad":[NSNumber numberWithFloat:pad]} views:viewsDictionary];
     [self.view addConstraint:constraint1];
@@ -442,26 +455,55 @@ heightForFooterInSection:(NSInteger)section {
     if (indexPath.section == 0) {
         
         cell.nameLabel.text = @"Jessica Marone";
-        cell.dateLabel.text = @"Encountered 5 hours ago";
-        cell.pic.image = [UIImage imageNamed:@"blurred"];
-        cell.blurredBackground.image = [UIImage imageNamed:@"blurred"];
-        cell.networksLabel.text = @"No Public Networks";
-        cell.networksLabel.textColor = [UIColor lightGrayColor];
-        
-    }
-    else{
-
-        NSString *fname = [[[DataAccess singletonInstance] getName] stringByAppendingString:@" "];
-        
-        
-        cell.nameLabel.text = [fname stringByAppendingString:[[DataAccess singletonInstance] getLName]];
-        cell.pic.image = [[DataAccess singletonInstance] getProfileImage];
-        cell.blurredBackground.image = [[DataAccess singletonInstance] getProfileImage];
-        cell.dateLabel.text = @"Encountered 3 hours ago";
+        cell.dateLabel.text = @"Encountered 50 minutes ago";
+        cell.pic.image = [UIImage imageNamed:@"girl1"];
+        cell.blurredBackground.image = [UIImage imageNamed:@"girl1"];
         cell.networksLabel.text = @"Public Networks Available";
         cell.networksLabel.textColor = [UIColor lightGrayColor];
-
+        cell.adButton.hidden = YES;
+        cell.adBackground.hidden = YES;
+    }   else if(indexPath.section == 1){
+        /*
+         cell.nameLabel.text = @"Brendan Rogers";
+         cell.pic.image = [UIImage imageNamed:@"brendan"];
+         cell.blurredBackground.image = [UIImage imageNamed:@"brendan"];
+         cell.dateLabel.text = @"Encountered 3 hours ago";
+         cell.networksLabel.text = @"No Public Networks";
+         cell.networksLabel.textColor = [UIColor lightGrayColor]; */
         
+        
+        cell.nameLabel.hidden = YES;
+        cell.pic.hidden = YES;
+        cell.blurredBackground.hidden = YES;
+        cell.dateLabel.hidden = YES;
+        cell.adBackground.hidden = NO;
+        cell.networksLabel.textColor = [UIColor lightGrayColor];
+        cell.adBackground.image = [UIImage imageNamed:@"ad"];
+        cell.networksLabel.text = @"Open now in your area";
+        cell.Label1.hidden = YES;
+        cell.Label2.hidden = YES;
+        cell.Label3.hidden = YES;
+        
+        cell.icon1.hidden = YES;
+        cell.icon2.hidden = YES;
+        cell.icon3.hidden = YES;
+        
+        cell.box1.hidden = YES;
+        cell.box2.hidden = YES;
+        cell.box3.hidden = YES;
+        cell.adButton.hidden = NO;
+
+    }
+    else{
+        cell.adButton.hidden = YES;
+        cell.nameLabel.text = @"Brendan Rogers";
+        cell.pic.image = [UIImage imageNamed:@"brendan"];
+        cell.blurredBackground.image = [UIImage imageNamed:@"brendan"];
+        cell.dateLabel.text = @"Encountered 3 hours ago";
+        cell.networksLabel.text = @"No Public Networks";
+        cell.networksLabel.textColor = [UIColor lightGrayColor];
+        cell.adBackground.hidden = YES;
+
     }
 
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -727,7 +769,7 @@ heightForFooterInSection:(NSInteger)section {
 }
 
 - (UIColor *) cdNavBlue {
-    return [UIColor colorWithRed:0.00 green:0.59 blue:0.85 alpha:1.0];
+    return [UIColor colorWithRed:0.2588 green: 0.5216 blue: 0.9569 alpha:1.0];
 }
 
 

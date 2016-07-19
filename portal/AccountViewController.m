@@ -216,8 +216,8 @@
     
     UIButton* customButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    newNavBar.backgroundColor = [UIColor whiteColor];
-    newNavBar.barTintColor = [UIColor whiteColor];
+ //   newNavBar.backgroundColor = [self cdNavBlue];
+    newNavBar.barTintColor = [self cdNavBlue];
     
     
     
@@ -276,7 +276,7 @@
     
     [nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [nameLabel invalidateIntrinsicContentSize];
-    nameLabel.textColor = [UIColor blackColor];
+    nameLabel.textColor = [UIColor whiteColor];
     
     nameLabel.text = [[DataAccess singletonInstance] getName];
     
@@ -354,7 +354,7 @@
         image_size = 32;
         v_pad = 5;
         n_pad = 10;
-        viewImage.layer.cornerRadius = 15;
+        viewImage.layer.cornerRadius = 16;
         h_pad = -13;
         
     }
@@ -1979,6 +1979,10 @@
     return [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.0];
     
     
+}
+
+- (UIColor *) cdNavBlue {
+    return [UIColor colorWithRed:0.2588 green: 0.5216 blue: 0.9569 alpha:1.0];
 }
 
 

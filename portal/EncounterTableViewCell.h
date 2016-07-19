@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *pic;
 @property (strong, nonatomic) IBOutlet UIView *pickbackground;
 @property (strong, nonatomic) IBOutlet UIImageView *blurredBackground;
+@property (strong, nonatomic) IBOutlet UIImageView *adBackground;
 
 
 @property (nonatomic, strong) NSString *linkedinId;
@@ -34,7 +35,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 
 
-@property (strong, nonatomic) IBOutlet UIButton *facebookIcon;
+@property (strong, nonatomic) IBOutlet UIButton *adButton;
 @property (strong, nonatomic) IBOutlet UIButton *instagramIcon;
 @property (strong, nonatomic) IBOutlet UIButton *linkedinIcon;
 @property (strong, nonatomic) IBOutlet UIButton *snapchatIcon;

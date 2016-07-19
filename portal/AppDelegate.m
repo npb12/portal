@@ -11,6 +11,7 @@
 #import "DataAccess.h"
 #import "HomeViewController.h"
 #import "AccountViewController.h"
+#import "HomeVCViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,13 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:12.0f], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    
+    [[DataAccess singletonInstance] saveIncomingAvatarSetting:YES];
+    [[DataAccess singletonInstance] saveOutgoingAvatarSetting:YES];
+    
     if ([[DataAccess singletonInstance] UserIsLoggedIn]) {
         [self initRootViewController];
     }
@@ -83,7 +90,7 @@
 
 - (void)initRootViewController {
     
-    EncountersViewController *ViewController = [[EncountersViewController alloc] init];
+    HomeVCViewController *ViewController = [[HomeVCViewController alloc] init];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:ViewController];
     [self.navController setNavigationBarHidden:NO];
